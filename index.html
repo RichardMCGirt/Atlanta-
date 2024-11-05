@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlanta Market Analysis</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon3.ico">
+
+
+</head>
+<body>
+
+<h1>Atlanta Market Analysis</h1>
+
+<div class="container">
+
+  <div class="column">
+    <img src="Atlanta/Burns Home Value Index.png" alt="Burns Home Value Index" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.43.39 AM.png" alt="Metro Net Household Move-Ins/Outs Counts" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.43.05 AM.png" alt="Metro Household Move-Ins/Outs Counts - Annual Count and Net Moves" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.38.54 AM.png" alt="Homebuilder Community Locations" onclick="openModal(this)">
+
+    <img src="Atlanta/Market Forcast.png" alt="New Home Supply and Market Conditions" onclick="openModal(this)">
+
+    <a class="download-link" href="Atlanta/Atlanta.pdf" download>Download Full Atlanta Market Analysis PDF</a>
+    <a class="download-link" href="Atlanta/Burns_Data_Download.csv" download>Download Data CSV 1</a>
+    <a class="download-link" href="Atlanta/Data Download.csv" download>Download Data CSV 2</a>
+  </div>
+
+  <div class="column">
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.42.48 AM.png" alt="Metro Household Move-Ins/Outs - Annual and Monthly Net Moves" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.42.26 AM.png" alt="Metro Net Household Moves - Current" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.39.26 AM.png" alt="Homebuilder Community Counts - 65 Metros" onclick="openModal(this)">
+
+    <img src="Atlanta/Screenshot 2024-11-05 at 11.39.59 AM.png" alt="Homebuilder Community Counts - Builder Rankings by City" onclick="openModal(this)">
+
+    <img src="Atlanta/Current Market Conditions.png" alt="Current Market Conditions and Forecast" onclick="openModal(this)">
+
+    <img src="Atlanta/Housing Outlook.png" alt="Housing Outlook" onclick="openModal(this)">
+
+    <img src="Atlanta/Market Forecast.png" alt="Market Forecast" onclick="openModal(this)">
+  </div>
+
+  <!-- Carousel container for additional images -->
+  <div class="carousel">
+    <div class="carousel-inner">
+      <img src="Atlanta/MarketRanking/1.png" class="carousel-item" alt="Image 1">
+      <img src="Atlanta/MarketRanking/2.png" class="carousel-item" alt="Image 2">
+      <img src="Atlanta/MarketRanking/3.png" class="carousel-item" alt="Image 3">
+      <img src="Atlanta/MarketRanking/4.png" class="carousel-item" alt="Image 4">
+      <img src="Atlanta/MarketRanking/5.png" class="carousel-item" alt="Image 5">
+      <img src="Atlanta/MarketRanking/6.png" class="carousel-item" alt="Image 6">
+      <img src="Atlanta/MarketRanking/7.png" class="carousel-item" alt="Image 7">
+      <img src="Atlanta/MarketRanking/8.png" class="carousel-item" alt="Image 8">
+      <img src="Atlanta/MarketRanking/9.png" class="carousel-item" alt="Image 9">
+      <img src="Atlanta/MarketRanking/10.png" class="carousel-item" alt="Image 10">
+      <img src="Atlanta/MarketRanking/11.png" class="carousel-item" alt="Image 11">
+      <img src="Atlanta/MarketRanking/12.png" class="carousel-item" alt="Image 12">
+      <img src="Atlanta/MarketRanking/13.png" class="carousel-item" alt="Image 13">
+      <img src="Atlanta/MarketRanking/14.png" class="carousel-item" alt="Image 14">
+      <img src="Atlanta/MarketRanking/15.png" class="carousel-item" alt="Image 15">
+      <img src="Atlanta/MarketRanking/16.png" class="carousel-item" alt="Image 16">
+      <img src="Atlanta/MarketRanking/17.png" class="carousel-item" alt="Image 17">
+    </div>
+    <button class="prev" onclick="prevSlide()">⟨</button>
+    <button class="next" onclick="nextSlide()">⟩</button>
+    
+</div>
+
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
