@@ -46,9 +46,19 @@ const currentSlides = {
   showSlide('carousel1', 0);
   showSlide('carousel2', 0);
   
+  // Event listener for arrow key navigation
+  document.addEventListener("keydown", function(event) {
+    const activeCarousel = document.getElementById('carousel1'); // Adjust if you have logic to change active carousel
+  
+    if (event.key === "ArrowRight") {
+      nextSlide(activeCarousel.id);
+    } else if (event.key === "ArrowLeft") {
+      prevSlide(activeCarousel.id);
+    }
+  });
+  
   // Modal handling functions (unchanged)
   function openModal(element) {
-    console.log("openModal triggered");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
   
