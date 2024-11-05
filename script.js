@@ -3,56 +3,66 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal();
   });
   
-
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-item');
-
-function showSlide(index) {
-  // Wrap around if index is out of bounds
-  if (index >= slides.length) {
-    currentSlide = 0;
-  } else if (index < 0) {
-    currentSlide = slides.length - 1;
-  } else {
-    currentSlide = index;
+// Track current slide for each carousel
+const currentSlides = {
+    carousel1: 0,
+    carousel2: 0
+  };
+  
+  // Function to show the specified slide in a specific carousel
+  function showSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) {
+      console.error(`Carousel with ID ${carouselId} not found.`);
+      return;
+    }
+  
+    const slides = carousel.querySelectorAll('.carousel-item');
+    const slideCount = slides.length;
+  
+    // Wrap around if index is out of bounds
+    if (index >= slideCount) {
+      currentSlides[carouselId] = 0;
+    } else if (index < 0) {
+      currentSlides[carouselId] = slideCount - 1;
+    } else {
+      currentSlides[carouselId] = index;
+    }
+  
+    // Shift carousel inner to show the current slide
+    carousel.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlides[carouselId] * 100}%)`;
   }
   
-  // Shift carousel inner to show the current slide
-  document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-// Functions to move to the next or previous slide
-function nextSlide() {
-  showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-  showSlide(currentSlide - 1);
-}
-
-// Open the modal and set the image source
-function openModal(element) {
-    console.log("openModal triggered");  // Debugging line
+  // Functions to move to the next or previous slide in a specific carousel
+  function nextSlide(carouselId) {
+    showSlide(carouselId, currentSlides[carouselId] + 1);
+  }
+  
+  function prevSlide(carouselId) {
+    showSlide(carouselId, currentSlides[carouselId] - 1);
+  }
+  
+  // Initialize both carousels to show the first slide
+  showSlide('carousel1', 0);
+  showSlide('carousel2', 0);
+  
+  // Modal handling functions (unchanged)
+  function openModal(element) {
+    console.log("openModal triggered");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
   
     modalImg.src = element.src;
     modal.style.display = "flex";
-  
     document.addEventListener("keydown", handleEscape);
   }
   
-  
-  // Close the modal
   function closeModal() {
     const modal = document.getElementById("imageModal");
     modal.style.display = "none";
-  
-    // Remove the Escape key listener
     document.removeEventListener("keydown", handleEscape);
   }
   
-  // Close modal when clicking outside the image
   document.getElementById("imageModal").addEventListener("click", function (event) {
     const modalImg = document.getElementById("modalImage");
     if (event.target !== modalImg) {
@@ -60,17 +70,14 @@ function openModal(element) {
     }
   });
   
-  // Handle Escape key to close modal
   function handleEscape(event) {
     if (event.key === "Escape") {
       closeModal();
     }
   }
   
+  // Automatically close modal if open on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    closeModal();
+  });
   
-  
-
-// Initialize the first slide
-showSlide(currentSlide);
-
-
